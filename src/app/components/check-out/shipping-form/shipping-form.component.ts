@@ -6,6 +6,7 @@ import { OrderService } from 'app/services/firebaseOrder/order.service';
 import { AuthService } from 'app/services/auth.service';
 import { Order } from 'app/models/order';
 import { Shipping } from 'app/models/shipping';
+import { NotificationService } from 'app/services/notification/notification.service';
 
 @Component({
   selector: 'app-shipping-form',
@@ -23,12 +24,15 @@ export class ShippingFormComponent implements OnInit, OnDestroy {
     private orderService: OrderService,
     private authService: AuthService,
     private router: Router,
+    private notification: NotificationService
   ) { }
 
   async placeOrder() {
     let order = new Order(this.userId, this.shipping, this.cart);
     let result = await this.orderService.placeOrder(order);
-    this.router.navigate(['/order-success', result.key]);
+    this.notification.showNotification('top', 'center', 'success', 'fa fa-good',
+    '\<b>Votre commande a été passé!\</b>\<br> Vous serez livré d\'ici peut', + result.key);
+    this.router.navigate(['/dashboard']);
   }
 
   ngOnInit() {

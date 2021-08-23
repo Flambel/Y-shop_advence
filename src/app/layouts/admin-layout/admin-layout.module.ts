@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminLayoutRoutes } from './admin-layout.routing';
 import { DashboardComponent } from '../../dashboard/dashboard.component';
@@ -23,7 +22,7 @@ import { ProductFormComponent } from 'app/components/admin/product-form/product-
 import { CheckOutComponent } from 'app/components/check-out/check-out.component';
 import { ShippingFormComponent } from 'app/components/check-out/shipping-form/shipping-form.component';
 import { DemoComponent } from 'app/components/demo/demo/demo.component';
-// import { FooterComponent } from 'app/components/footer/footer.component';
+import { SecondFooterComponent } from 'app/components/second-footer/second-footer.component';
 import { HomeComponent } from 'app/components/home/home.component';
 import { LoginComponent } from 'app/components/login/login.component';
 import { MyOrdersComponent } from 'app/components/my-orders/my-orders.component';
@@ -37,6 +36,7 @@ import { RegisterComponent } from 'app/components/register/register.component';
 import { ProductCardComponent } from 'app/components/shareUsersAdmin/product-card/product-card.component';
 import { ShoppingCartSummaryComponent } from 'app/components/shopping-cart/shopping-cart-summary/shopping-cart-summary.component';
 import { ShoppingCartComponent } from 'app/components/shopping-cart/shopping-cart.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   imports: [
@@ -67,7 +67,7 @@ import { ShoppingCartComponent } from 'app/components/shopping-cart/shopping-car
     AdminProductComponent,
     AdminOrdersComponent,
     ProductFormComponent,
-    LoginComponent,
+    // LoginComponent,
     ProductFilterComponent,
     DemoComponent,
     ProductCardComponent,
@@ -76,8 +76,8 @@ import { ShoppingCartComponent } from 'app/components/shopping-cart/shopping-car
     ShoppingCartSummaryComponent,
     OrderDetailComponent,
     OrderTotalPriceComponent,
-    // FooterComponent,
-    RegisterComponent,
+    SecondFooterComponent,
+    // RegisterComponent,
 //    NotificationsComponent,
     UpgradeComponent,
   ]

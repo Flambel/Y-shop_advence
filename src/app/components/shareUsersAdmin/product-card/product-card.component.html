@@ -1,14 +1,14 @@
-<div *ngIf="product.title" class="card mt-4">
+<div *ngIf="product.title"><br>
   <img *ngIf="product.imageUrl" src="{{ product.imageUrl }}" class="card-img-top" alt="{{ product.title }}">
   <div class="card-body">
-    <h5 class="card-title">{{ product.title }}</h5>
-    <p class="card-text">{{ product.price }} FCFA</p>
+    <h5 class="card-title"><b>{{ product.title }}</b></h5><br>
+    <p class="card-title"><b><i>{{ product.price }}</i></b> FCFA</p>
   </div>
 
   <div *ngIf= "shoppingCart" class= "card-footer p-0">
     <button  
     *ngIf="shoppingCart.getQuantity(product) === 0; else updateQuantity"
-    (click)="addToCart()"  class="btn btn-secondary btn-block">Ajouter au panier
+    (click)="addToCart()"  class="btn btn-secondary btn-block" style="color: white;">Ajouter au panier
     <!-- Icon shopping Cart -->
     <i class="fa fa-cart-arrow-down fa-lg"></i> 
   </button>

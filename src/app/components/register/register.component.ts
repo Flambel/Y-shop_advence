@@ -31,6 +31,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.registerForm = this.formLog.group({
+      'name': ['', [Validators.required]],
       'email': ['', [Validators.required, Validators.email]],
       'password': ['', [Validators.required, Validators.minLength(6)]]
     });
@@ -49,8 +50,6 @@ export class RegisterComponent implements OnInit {
     this.router.navigate(['/forgot-password']);
   }
 
-
-
   registerWithGoogle() {
     this.authService.loginWithGoogle();
   }
@@ -61,12 +60,14 @@ export class RegisterComponent implements OnInit {
     if (this.registerForm.invalid) {
       return;
     }
+
     this.waitingRegister = true;
+    this.name = this.registerForm.value.name;
     this.email = this.registerForm.value.email;
     this.password = this.registerForm.value.password;
-    console.log('name: ');
+    console.log('name: ', this.name);
 
-    this.authService.signUp(this.email, this.password)
+    this.authService.signUp(this.email, this.password, this.name)
       .then((result) => {
         this.router.navigate(['/products']);
         this.submitted = false;

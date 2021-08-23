@@ -1,14 +1,14 @@
-<div class="row no-gutters"> 
+<div class="row no-gutters" style="color: black;"> 
     <div class="col-sm-12 col-md-3 col-lg-2">
       <button (click)="removeFromCart()"  class="btn btn-secondary btn-block pl-2 pr-3">
       <!-- Icon -->
-      <i class="fa fa-minus-square fa-lg"></i>
+      <i class="fa fa-minus-square fa-lg" style="color: rgb(148, 142, 142);"></i>
       </button>
     </div> 
     <div class="col text-center mt-1">{{ shoppingCart.getQuantity(product) }} dans le panier</div>
     <div class="col-sm-12 col-md-3 col-lg-2">
       <button (click)="addToCart()"  class="btn btn-secondary btn-block pl-2 pr-3">
-        <i class="fa fa-plus-square fa-lg"></i>
+        <i class="fa fa-plus-square fa-lg" style="color: rgb(129, 123, 123);"></i>
       </button>
     </div>
   </div>

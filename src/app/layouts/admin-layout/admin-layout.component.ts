@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy, PopStateEvent } from '@angular/common';
 import 'rxjs/add/operator/filter';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
-import { Router, NavigationEnd, NavigationStart } from '@angular/router';
+import { Router, NavigationEnd, NavigationStart, RouterOutlet, ActivationStart } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import PerfectScrollbar from 'perfect-scrollbar';
 import * as $ from "jquery";
@@ -19,6 +19,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
     styleUrls: ['./admin-layout.component.scss']
 })
 export class AdminLayoutComponent implements OnInit {
+    @ViewChild(RouterOutlet) outlet: RouterOutlet;
+  
     note: any;
     private _router: Subscription;
     private lastPoppedUrl: string;
@@ -45,19 +47,19 @@ export class AdminLayoutComponent implements OnInit {
         localStorage.removeItem('returnUrl');
         router.navigateByUrl(returnUrl);
       });
-  
+
       for (let i = 0; i < 4; i++) {
         this.addSlide();
       }
       // this.cathegorie();
     }
     data = [{ categories: 'Désistances', Déserts: 'Boissons' }];
-  
+
     myInterval: number | false = 6000;
     slides: any[] = [];
     activeSlideIndex = 0;
     noWrapSlides = false;
-  
+
     cathegorie(product?) {
         // return new Promise<any>((resolve, reject) =>{
         //     this.firestore
@@ -74,6 +76,10 @@ export class AdminLayoutComponent implements OnInit {
       }
 
     ngOnInit() {
+        this.router.events.subscribe(e => {
+          if (e instanceof ActivationStart && e.snapshot.outlet === "administration")
+            this.outlet.deactivate();
+        });
         this.note = this.notification;
 
         const isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;

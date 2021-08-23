@@ -2,7 +2,8 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Clients</th>
+      <th>Client</th>
+      <th>Contact</th>
       <th>Date</th>
       <th>Comamnde T.Prix</th>
       <th>Info</th>
@@ -12,6 +13,7 @@
   <tbody>
     <tr *ngFor="let order of orders$ | async">
       <td>{{ order.shipping.name }}</td>
+      <td>{{ order.shipping.telephone1 }}</td>
       <td>{{ order.datePlaced | date}}</td>
       <td>
         <!-- total price order component -->

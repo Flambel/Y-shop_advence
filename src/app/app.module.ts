@@ -33,13 +33,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule, AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireStorage } from '@angular/fire/storage';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FooterComponent } from './components/footer/footer.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   imports: [
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule,
     HttpModule,
     ComponentsModule,
     RouterModule,
@@ -64,12 +67,16 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     IndexComponent,
     FourHoFourComponent,
     NotificationsComponent,
+    FooterComponent,
+    LoginComponent,
+    RegisterComponent
 
   ],
     providers: [
         NotificationsService,
         AngularFireDatabase,
         AngularFirestore,
+        AngularFireStorage,
         AuthService,
         AuthGuardService,
         UserService,

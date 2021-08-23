@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
     // private authen: AuthService,
     private formLog: FormBuilder,
     private notification: NotificationService) {
+      this.waitingLogin = false;
   }
 
   ngOnInit(): void {
@@ -66,13 +67,11 @@ export class LoginComponent implements OnInit {
 
     this.authService.signIn(this.email, this.password)
       .then((result) => {
-        this.router.navigate(['/dashboard']);
         this.submitted = false;
         this.waitingLogin = false;
       })
       .catch((error) => {
         this.waitingLogin = false;
-        this.notification.showNotification('top', 'center', 'danger', 'pe-7s-close-circle', '\<b>Sorry !\</b>\<br>' + error.message);
         this.submitted = false;
 
       });

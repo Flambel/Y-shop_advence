@@ -2,6 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ShoppingCart } from 'app/models/shopping-cart';
 import { ShoppingCartService } from 'app/services/firebaseCart/shopping-cart.service';
 import { Observable } from 'rxjs';
+// import { Order } from 'src/app/models/order';
+// import { OrderService } from 'src/app/services/firebaseOrder/order.service';
+// import { Shipping } from 'src/app/models/shipping';
 
 @Component({
   selector: 'app-check-out',
@@ -14,8 +17,8 @@ export class CheckOutComponent implements OnInit {
   constructor(
     private shoppingCartService: ShoppingCartService,
     ) {}
- 
+
   async ngOnInit() {
-    this.cart$ = await this.shoppingCartService.getCart();    
+    this.cart$ = await this.shoppingCartService.getCart();
   }
 }

@@ -1,3 +1,4 @@
+<app-navbar></app-navbar><br><br><br><br>
 <div class="imag">
   <div class="container">
     <div class="row">
@@ -9,6 +10,15 @@
           <h3 style="color: black; font-size:20px;"><b>Créer un compte</b></h3>
         </div>
         <form [formGroup]="registerForm" (ngSubmit)="submit()" style="color: black;" class="card-body">
+          <div class="form-group">
+            <label for="name"><b>Nom</b></label>
+            <input type="text" id="name" formControlName="name" placeholder="Entrez votre nom" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+
+            <div *ngIf="submitted && f.name.errors" class="invalid-feedback text-danger">
+              <div *ngIf="f.name.errors.required">Votre nom est requis</div>
+            </div>
+          </div><br>
           <div class="form-group">
             <label for="email"><b>Email</b></label>
             <input type="text" id="email" formControlName="email" placeholder="Entrez votre Email" class="form-control"
@@ -45,3 +55,4 @@
     </div>
   </div>
 </div>
+<app-footer></app-footer>

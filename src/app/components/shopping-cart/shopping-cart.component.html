@@ -1,49 +1,126 @@
-<h1 class="ml-5 mb-4">Panier d'achats</h1>
-<div class="row col-sm-12 col-md-11 col-lg-11" *ngIf="cart$ | async as cart">
-  <div class="card-body col-sm-12">
-    <p>Vous avez {{ cart.totalItemsCount }} articles dans votre panier
-      <button *ngIf="cart.items.length" (click)="clearCart()"
-        class="float-right btn btn-light btn-sm col-sm-10 col-md-3 col-lg-3" style="color: white !important;">Vider le pannier</button>
-    </p>
+<bs-navbar></bs-navbar><br><br><br><br><br>
+<div class="wrapper">
+  <div class="main-panel mt-15">
+    <div class="row col-sm-12 col-md-11 col-lg-11" *ngIf="cart$ | async as cart">
+
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-warning" style="background-color: rgb(45, 44, 44) !important;">
+            <h1 class="ml-5 mb-4">Panier d'achats</h1>
+            <p class="card-category"> Vous avez {{ cart.totalItemsCount }} articles dans votre panier. <br><br></p>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table col-sm-12">
+                <thead>
+                  <tr>
+                    <!-- <th style="width: 110px"></th> -->
+                    <th style="width: 200px">Repas</th>
+                    <th>Prix </th>
+                    <th class="text-center">Quantité</th>
+                    <th class="text-left">Somme</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr *ngFor="let item of cart.items">
+                    <!-- <td>
+                      <div [style.backgroundImage]="'url('+ item.imageUrl +')'" class="thumbnail"></div>
+                    </td> -->
+                    <td>{{item.title}}</td>
+                    <td>{{item.price}} FCFA</td>
+                    <td>
+                      <app-product-quantity [product]="item" [shopping-cart]="cart"></app-product-quantity>
+                    </td>
+                    <td class="text-left">{{item.subTotalPrice}} FCFA</td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th class="text-left">{{cart.totalPrice}} FCFA</th>
+                  </tr>
+                  <tr>
+                    <th colspan="5">
+                      <a *ngIf="cart.items.length" routerLink="/check-out" class="btn btn-warning ml-2 col-sm-4 mb-4"
+                        style="color: white !important;">Passer la
+                        commande</a>
+                    </th>
+                  </tr>
+                </tfoot>
+              </table>
+              <div class="card-body col-sm-12">
+                <p>
+                  <button class="float-left btn btn-light btn-sm col-sm-10 col-md-3 col-lg-3" routerLink="/dashboard"
+                    style="color: white !important;"> Continuer les achats</button>
+                  <button *ngIf="cart.items.length" (click)="clearCart()"
+                    class="float-right btn btn-light btn-sm col-sm-10 col-md-3 col-lg-3"
+                    style="color: white !important;">Vider
+                    le pannier</button>
+                </p>
+              </div>
+            </div>
+            <div class="row col-sm-12 col-md-11 col-lg-11" *ngIf="!data">
+              Vous avez 0 articles dans votre panier. <br>
+
+              <table class="table col-sm-12">
+                <thead>
+                  <tr>
+                    <th style="width: 110px"></th>
+                    <th style="width: 200px">Repas</th>
+                    <th>Prix </th>
+                    <th class="text-center">Quantité</th>
+                    <th class="text-right">Somme</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="thumbnail"></div>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                      <app-product-quantity [product]="item" [shopping-cart]="cart"></app-product-quantity>
+                    </td>
+                    <td class="text-right"></td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th class="text-right">0 FCFA</th>
+                  </tr>
+                  <tr>
+                    <th colspan="5">
+                      <a *ngIf="cart.items.length" routerLink="/check-out" class="btn btn-warning ml-2 col-sm-4 mb-4"
+                        style="color: white !important;">Passer la
+                        commande</a>
+                    </th>
+                  </tr>
+                </tfoot>
+              </table>
+              <div class="card-body col-sm-12">
+                <p>
+                  <button class="float-left btn btn-light btn-sm col-sm-10 col-md-3 col-lg-3" routerLink="/dashboard"
+                    style="color: white !important;"> Continuer les achats</button>
+                  <button *ngIf="cart.items.length" (click)="clearCart()"
+                    class="float-right btn btn-light btn-sm col-sm-10 col-md-3 col-lg-3"
+                    style="color: white !important;">Vider
+                    le pannier</button>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <table class=table col-sm-12>
-    <thead>
-      <tr>
-        <th style="width: 110px"></th>
-        <th style="width: 200px">Repas</th>
-        <th>Prix </th>
-        <th class="text-center">Quantité</th>
-        <th class="text-right">SubTotal</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <tr *ngFor="let item of cart.items">
-        <td>
-          <div [style.backgroundImage]="'url('+ item.imageUrl +')'" class="thumbnail"></div>
-        </td>
-        <td>{{item.title}}</td>
-        <td>{{item.price}} FCFA</td>
-        <td>
-          <app-product-quantity [product]="item" [shopping-cart]="cart"></app-product-quantity>
-        </td>
-        <td class="text-right">{{item.subTotalPrice}} FCFA</td>
-      </tr>
-    </tbody>
-    <tfoot>
-      <tr>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th class="text-right">{{cart.totalPrice}} FCFA</th>
-      </tr>
-      <tr>
-        <th colspan="5">
-          <a *ngIf="cart.items.length" routerLink="/check-out" class="btn btn-warning ml-2 col-sm-4 mb-4" style="color: white !important;">Passer la commande</a>
-        </th>
-      </tr>
-    </tfoot>
-  </table>
 </div>
+<app-second-footer></app-second-footer>

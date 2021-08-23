@@ -1,3 +1,5 @@
+<bs-navbar></bs-navbar><br><br><br><br><br>
+
 <h2 class= "ml-5">Confirmer votre commande - étape 2 sur 3</h2>
 
 <div class= "row" *ngIf="cart$ | async as cart" >
@@ -9,3 +11,4 @@
     <app-shopping-cart-summary [cart]="cart"></app-shopping-cart-summary>
   </div>
 </div>
+<app-footer></app-footer>
