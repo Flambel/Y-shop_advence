@@ -1,0 +1,48 @@
+<form class= "ml-3" #f="ngForm">
+    <div class="form-group">
+      <label for="">Nom</label>
+      <input #name="ngModel" name="name" [(ngModel)]="shipping.name" type="text" class="form-control" required>
+      <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+        <div *ngIf="name.errors.required">Le nom est requis.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+        <label for="">Address</label>
+        <input #addressLine1="ngModel" name="addressLine1" [(ngModel)]="shipping.addressLine1" type="text" class="form-control" placeholder="address" required>
+        <div class="alert alert-danger" *ngIf="addressLine1.touched && addressLine1.invalid">
+          <div *ngIf="addressLine1.errors.required">L'address est requis.</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="">Téléphone</label>
+        <input #telephone1="ngModel" name="telephone1" [(ngModel)]="shipping.telephone1" type="text" class="form-control" placeholder="Numéro de téléphone" required>
+        <div class="alert alert-danger" *ngIf="telephone1.touched && telephone1.invalid">
+          <div *ngIf="telephone1.errors.required">Le numéro de téléphone est requis.</div>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="">Quartier</label>
+        <input #country="ngModel" name="country" [(ngModel)]="shipping.country" type="text" class="form-control" required>
+        <div class="alert alert-danger" *ngIf="country.touched && country.invalid">
+          <div *ngIf="country.errors.required">Le quartier est requis.</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="">Cité (Laisser vide si non)</label>
+        <input #city="ngModel" name="city" [(ngModel)]="shipping.city" type="text" class="form-control">
+        <div class="alert alert-danger" *ngIf="city.touched && city.invalid">
+          <div *ngIf="city.errors.required">...</div>
+        </div>
+      </div>
+
+      <button
+      [disabled]="!f.valid"
+      (click)="placeOrder()"
+      class="btn btn-warning col-sm-12 col-md-6 col-lg-5" style="color: white;">
+      Commander
+    </button>
+</form>

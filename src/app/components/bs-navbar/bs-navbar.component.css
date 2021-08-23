@@ -1,0 +1,14 @@
+.dropdown-toggle{
+    cursor: pointer;
+}
+
+.navbar-brand {
+    color: #1d302d;
+    cursor: pointer;
+}
+
+.logo {
+    width: 105px;
+    position: absolute;
+    margin-top: -25px;
+}

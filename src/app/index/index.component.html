@@ -1,0 +1,84 @@
+<main>
+    <div class="content-main">
+        <div class="container-main">
+            <div class="content">
+                <div class="container" style="width: 100%">
+                    <div class="row">
+                        <div class="calendar-center">
+                            <div class="col-md-offset-1 col-md-8 col-md-offset-3 col-xs-offset-5 col-xs-8 col-xs-offset-2">
+                                <div>
+                                    <font size="6" color="#00010a" style="margin-left: 100px">
+                                        <span id="date_time">{{time}}</span>
+                                    </font>
+                                </div>
+                                <div class="calendar-base" style="margin-top: 15px">
+                                    <!-- year -->
+                                    <div class="year">2020</div>
+                                    <!-- /year -->
+                                    <!-- months -->
+                                    <br /><br />
+                                    <div class="months">
+                                        Jan
+                                        Feb
+                                        Mar
+                                        Apr
+                                        May
+                                        <strong class="active-month">Jun</strong>
+                                        July
+                                        Aug
+                                        Sep
+                                        Oct
+                                        Nov
+                                        Dec
+                                    </div>
+                                    <!-- /months -->
+                                    <!-- days -->
+                                    <hr class="month-line" />
+                                    <div class="days">MON TUE WED THU FRI SAT SUN</div>
+                                    <!-- /days -->
+                                    <!-- week -->
+                                    <div class="num-dates">
+                                        <div class="week">01 02 03 04 05 <strong class="active-day">06</strong> 07</div>
+                                        <div class="week">08 09 10 11 12 13 14</div>
+                                        <div class="week">15 16 17 18 19 20 21</div>
+                                        <div class="week">22 23 24 25 26 27 28</div>
+                                        <div class="week">29 30 <span class="grey" style="background-color: grey">01 02 03 04 05</span></div>
+                                        <div class="week"><span class="grey" style="background-color: grey">22 23 24 25 26 27 28</span></div>
+                                        <!-- /week -->
+                                    </div>
+                                </div>
+                                <!-- calendar-base -->
+                                <div class="calendar-left">
+                                    <div class="day">{{weekDay}}</div>
+                                    <div class="num-date">{{numDay}}</div>
+                                    <br />
+                                    <div class="day">{{month}}</div>
+                                    <!--day -->
+                                    <hr class="event-line" />
+                                    <br />
+                                    <div class="current-events">
+                                        Current world Events
+                                        <ul>
+                                            <li>No world event today</li>
+                                        </ul>
+                                        <a href="#"><font color="white">Log to see post events</font></a>
+                                    </div>
+                                    <div class="create-event">Come and create your events.</div>
+                                </div>
+                                <span style="margin-left: 100px"></span>
+                                Join the SDK games Africa community now and benefit from free calendar services.
+                                <button type="button"
+                                        routerLink="/signup"
+                                        class="btn btn-outline-primary">
+                                    <font color="#1976d2">Sign Up</font>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="spacer-down">.</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

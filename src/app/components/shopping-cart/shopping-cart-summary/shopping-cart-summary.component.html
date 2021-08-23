@@ -1,0 +1,26 @@
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">Résumé de la commande</h4>
+    <p class="card-text">Vous avez {{ cart.totalItemsCount }} articles dans votre panier.
+    </p>
+    <ul class="list-group list-group-flush">
+        <li *ngFor="let item of cart.items" class="list-group-item">
+            {{item.quantity}} x {{item.title}}  
+            <div class="float-right">
+                {{item.subTotalPrice}} FCFA
+            </div>
+        </li>
+
+        <li class="list-group-item font-weight-bold">
+            Total
+            <div class="float-right">
+                {{ cart.totalPrice }} FCFA
+            </div>
+        </li>
+        <div class="alert alert-warning">
+          <b> Note: </b> 
+          <br>Pour des livraisons à domicile, à ce montant total s'ajouterons les frais de transport (200 FCFA) et conserve ( 100 FCFA / gamelle et 50 FCFA pour un sac plastique).
+        </div><br>
+    </ul>
+ 
+</div>

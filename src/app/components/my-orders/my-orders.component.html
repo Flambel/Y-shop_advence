@@ -1,0 +1,35 @@
+<h1>Ma commande</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nom du client</th>
+      <th>Date</th>
+      <th>Commande T.Prix</th>
+      <th>Info</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let order of orders$ | async">
+      <td>{{ order.shipping.name }}</td>
+      <td>{{ order.datePlaced | date}}</td>
+      <td>
+        <!-- total price order component -->
+        <app-order-total-price [order]="order"></app-order-total-price>
+      </td>
+      <td>
+        <button (click)="expandOrder($event, order)" class="btn btn-secondary btn-sm">
+          Dérouler
+        </button>
+      </td>
+
+      <!-- more info with this button get expand -->
+      <div *ngIf="showingInfo && showingOrder.datePlaced == order.datePlaced">
+
+        <app-order-detail [order]="order"></app-order-detail>
+
+      </div>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>

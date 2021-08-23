@@ -1,0 +1,66 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top" style="background-color: rgb(9, 9, 9) !important;">
+  <a class="navbar-brand" routerLink="/">
+   <img src="./../../../assets/img/logoo.png" alt="logo" class="logo">
+  </a>
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <a class="nav-link ml-5" routerLink="/shopping-cart" (click)="isCollapsed = true">
+        <!--Icon ShoppingCart -->
+        <i class="fa fa-shopping-cart fa-lg" style="margin-left: 75px; color:rgb(253, 249, 249) !important; width:6; height:6;"></i>
+        <span class="badge badge-danger badge-pill pt-1 pb-1 ml-1" *ngIf="cart$ | async as cart">
+          {{ cart.totalItemsCount }}</span>
+      </a>
+    </li>
+
+  </ul>
+  <!--Boton responsive Collapse aria-expanded="false"-->
+  <button style="background-color: white !important;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+    aria-controls="navbarsExampleDefault" aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed">
+
+    <span ngbCollapse class="navbar-toggler-icon"></span>
+  </button>
+
+<!--Buttom collapsing div-->
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault" [ngbCollapse]="isCollapsed">
+<!--Header: Shopping cart  y Login -->
+
+    <ul class="navbar-nav">
+
+  <!--y Login dentro de template para cumple el else -->
+  <ng-template #anonymousUser>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/login" (click)="isCollapsed = true" style="color: white !important; padding: 12px !important;"><b>Connexion </b>
+        <i class="fa fa-user fa-lg" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ng-template>
+    
+
+<!--Header: Dropdown menu de despliegue, Logout, Async Pipe, -->
+      <li ngbDropdown *ngIf="appUser; else anonymousUser" class="nav-item dropdown">
+        <a *ngIf="appUser.name" ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" style="color: white !important;"
+          aria-expanded="false"> {{appUser.name}} </a>
+          <a *ngIf="!appUser.name"  ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" style="color: white !important;"
+            aria-expanded="false"> {{name}} </a>
+        <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item" routerLink="/my/orders" (click)="isCollapsed = true">Commandes</a>
+        <ng-container *ngIf="appUser.isAdmin">
+          <a class="dropdown-item" routerLink="/admin/orders" (click)="isCollapsed = true">Gérer les commandes</a>
+          <a class="dropdown-item" routerLink="/admin/products" (click)="isCollapsed = true">Gérer les produits</a>
+        </ng-container>
+          <a routerLink="/login" (click)="logout()" class="dropdown-item" routerLink="" (click)="isCollapsed = true">Déconnexion</a>
+        </div>
+      </li>
+    </ul>
+
+  </div>
+</nav>
+
+     <!-- Este form es de la barra de busqueda .
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+    </form> -->
+   
+
+

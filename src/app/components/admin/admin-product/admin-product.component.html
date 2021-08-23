@@ -1,0 +1,60 @@
+<p>
+  <a routerLink="/admin/products/new" class="btn btn-warning col-sm-12 col-md-4 col-lg-3">Ajouter un plat au cathalogue</a>
+</p>
+<p>
+  <input #query (keyup)="filter(query.value)" type="text" class="form-control" placeholder="Recherche...">
+</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Titre</th>
+      <th>Prix</th>
+      <th>Catégorie</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of filteredProducts">
+      <td>{{p.title}}</td>
+      <td>{{p.price}}</td>
+      <td>{{p.category}}</td>
+      <td>
+        <button (click)="editProduct($event, p)" class="btn btn-secondary">
+          Editer
+        </button>
+      </td>
+
+      <div *ngIf="editing && editingProduct.key == p.key">
+        <form (ngSubmit)="updateProduct()">
+          <div class="form-group mt-2">
+            <input type="text" name="title" [(ngModel)]="editingProduct.title" class="form-control">
+          </div>
+          
+          <div class="form-group">
+            <input type="number" name="price" [(ngModel)]="editingProduct.price" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <select #category="ngModel" [(ngModel)]="editingProduct.category" id="category" name="category" class="form-control">
+              <option value=""></option>
+              <option *ngFor="let c of categories$ | async" [value]="c.key">{{c.name}}
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <input type="text" name="imageUrl" [(ngModel)]="editingProduct.imageUrl" class="form-control">
+          </div>
+          <button type="submit" class="btn btn-success btn-block">
+            Mettre à jour
+          </button>
+        </form>
+      </div>
+      <td>
+        <button type="button" (click)="deleteProduct($event, p)" class="btn btn-danger">
+          Supprimer
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

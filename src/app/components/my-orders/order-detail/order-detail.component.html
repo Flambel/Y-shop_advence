@@ -1,0 +1,13 @@
+<div class="card">
+<div class="card-body p-2"> 
+<h5 class="card-title">Repas commandés</h5>
+  <ul class="list-group list-group-flush">
+    <li *ngFor="let item of order.items" class="list-group-item">
+      {{item.quantity}} X {{item.product.title}}
+      <div class="float-right">
+        {{ item.totalPrice}} FCFA
+      </div>
+    </li>
+  </ul>
+</div>
+</div>
