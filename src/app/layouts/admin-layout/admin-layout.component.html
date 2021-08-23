@@ -10,127 +10,97 @@
             <app-footer></app-footer>
         </div>
     </div>
-    <div class="fixed-plugin">
-        <div class="dropdown show-dropdown open show">
-            <a href="#" data-toggle="dropdown" aria-expanded="true">
-                <i class="fa fa-comment fa-2x"></i>
-            </a>
-            <ul class="dropdown-menu show" x-placement="bottom-start" style="position: absolute; top: 41px; left: -231px; will-change: top, left;">
-                <li class="header-title">Welcome to Y-Dental</li>
-                <img src="/assets/img/images2.jpg" />
-                Your dental clinic management web application, accessible from anywhere and anytime.
-                <br /><br />
-                By IRT3 team <br/>of Yaba-In / SDK Games enterprizes.
-                <li class="adjustments-line">
-                </li>
-                <li class="header-title">See allso...</li>
-                <li class="button-container">
-                    <div>
-                        <button class="btn btn-info btn-block btn-fill" data-toggle="modal" data-target="#buy">
-                            Our products
-                        </button>
-                    </div>
-                </li>
-                <li class="button-container text-center" routerLinkActive="active">
-                    <div>
-                        <a class="btn btn-default btn-block" href="#">
-                            About Yaba-In
-                        </a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
 </div>
 <!-- Buy-Modal-angular -->
-<div class="modal modal-angular fade" id="buy" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-<div class="modal-dialog" role="document">
-    <div class="modal-content">
-        <div class="modal-body text-center">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="margin-top">
-                Our products
-            </h4>
-            <div class="separator"></div>
-            <a href="http://yaba-in.000webhostapp.com/" class="modal-button" target="_blank">
-                <div class="wrapper-card">
-                    <div class="image-container">
-                        <img src="./assets/img/logo_Yaba-In 1.png" alt="unloaded">
+<!-- <div class="modal modal-angular fade" id="buy" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="margin-top">
+                    Our products
+                </h4>
+                <div class="separator"></div>
+                <a href="http://yaba-in.000webhostapp.com/" class="modal-button" target="_blank">
+                    <div class="wrapper-card">
+                        <div class="image-container">
+                            <img src="./assets/img/logo_Yaba-In 1.png" alt="unloaded">
+                        </div>
+                        Yaba-In <br />website
+                        <div class="separator"></div>
+                        <div class="product-type">
+                            www.yabain.com
+                        </div>
                     </div>
-                    Yaba-In <br />website
-                    <div class="separator"></div>
-                    <div class="product-type">
-                        www.yabain.com
+                </a>
+                <a href="https://www.sdkgames.com/" class="modal-button" target="_blank">
+                    <div class="wrapper-card">
+                        <div class="image-container image-angular-cli">
+                            <img src="./assets/img/sdkLogo.png" alt="unloaded">
+                        </div>
+                        SDK Games website
+                        <div class="separator"></div>
+                        <div class="product-type">
+                            www.sdkgames.com
+                        </div>
                     </div>
-                </div>
-            </a>
-            <a href="https://www.sdkgames.com/" class="modal-button" target="_blank">
-                <div class="wrapper-card">
-                    <div class="image-container image-angular-cli">
-                        <img src="./assets/img/sdkLogo.png" alt="unloaded">
+                </a>
+                <a href="http://www.groupesia.com/" class="modal-button" target="_blank">
+                    <div class="wrapper-card">
+                        <div class="image-container image-angular-cli">
+                            <img src="./assets/img/logoSIA.png" alt="unloaded">
+                        </div>
+                        Groupe SIA<br />webapp
+                        <div class="separator"></div>
+                        <div class="product-type">
+                            www.groupesia.com
+                        </div>
                     </div>
-                    SDK Games website
-                    <div class="separator"></div>
-                    <div class="product-type">
-                        www.sdkgames.com
+                </a>
+                <a href="https://bookbookshop.com/" class="modal-button" target="_blank">
+                    <div class="wrapper-card">
+                        <div class="image-container image-angular-cli">
+                            <img src="./assets/img/bookbookshop.png" alt="unloaded">
+                        </div>
+                        Bookbookshop<br /> website
+                        <div class="separator"></div>
+                        <div class="product-type">
+                            bookbookshop.com
+                        </div>
                     </div>
-                </div>
-            </a>
-            <a href="http://www.groupesia.com/" class="modal-button" target="_blank">
-                <div class="wrapper-card">
-                    <div class="image-container image-angular-cli">
-                        <img src="./assets/img/logoSIA.png" alt="unloaded">
+                </a>
+                <a href="https://sdk-games-scheduler.000webhostapp.com/" class="modal-button" target="_blank">
+                    <div class="wrapper-card">
+                        <div class="image-container image-angular-cli">
+                            <img src="./assets/img/sdk.jpg" alt="unloaded">
+                        </div>
+                        SDK Games<br /> scheduler
+                        <div class="separator"></div>
+                        <div class="product-type">
+                            www.sdkskeduler.com
+                        </div>
                     </div>
-                    Groupe SIA<br />webapp
-                    <div class="separator"></div>
-                    <div class="product-type">
-                        www.groupesia.com
+                </a>
+                <a href="https://www.irt-udm.com/" class="modal-button" target="_blank">
+                    <div class="wrapper-card">
+                        <div class="image-container image-angular-cli">
+                            <img src="./assets/img/irt.jpeg" alt="unloaded">
+                        </div>
+                        IRT Club<br /> website
+                        <div class="separator"></div>
+                        <div class="product-type">
+                            www.irt-udm.com
+                        </div>
                     </div>
-                </div>
-            </a>
-            <a href="https://bookbookshop.com/" class="modal-button" target="_blank">
-                <div class="wrapper-card">
-                    <div class="image-container image-angular-cli">
-                        <img src="./assets/img/bookbookshop.png" alt="unloaded">
-                    </div>
-                    Bookbookshop<br /> website
-                    <div class="separator"></div>
-                    <div class="product-type">
-                        bookbookshop.com
-                    </div>
-                </div>
-            </a>
-            <a href="https://sdk-games-scheduler.000webhostapp.com/" class="modal-button" target="_blank">
-                <div class="wrapper-card">
-                    <div class="image-container image-angular-cli">
-                        <img src="./assets/img/sdk.jpg" alt="unloaded">
-                    </div>
-                    SDK Games<br /> scheduler
-                    <div class="separator"></div>
-                    <div class="product-type">
-                        www.sdkskeduler.com
-                    </div>
-                </div>
-            </a>
-            <a href="https://www.irt-udm.com/" class="modal-button" target="_blank">
-                <div class="wrapper-card">
-                    <div class="image-container image-angular-cli">
-                        <img src="./assets/img/irt.jpeg" alt="unloaded">
-                    </div>
-                    IRT Club<br /> website
-                    <div class="separator"></div>
-                    <div class="product-type">
-                        www.irt-udm.com
-                    </div>
-                </div>
-            </a>
-            <div class="separator"></div>
-            <h4>
-                <a href="#" (click)="showNotification('top','right', 'danger')"> See more...</a>
-            </h4>
+                </a>
+                <div class="separator"></div>
+                <h4>
+                    <a href="#" (click)="showNotification('top','right', 'danger')"> See more...</a>
+                </h4>
 
+            </div>
         </div>
     </div>
-</div>
 
-</div>
+</div> -->
