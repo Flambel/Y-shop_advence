@@ -6,25 +6,21 @@
           background-color: rgba(255, 251, 251, 0.82) !important;">
         <div class="p-4"
           style="margin-bottom: 20px; margin-top: 20px; text-align: center; border-bottom: 1px solid gray;">
-
           <h3 style="color: black; font-size:20px;"><b>Se connecter</b></h3>
-
         </div>
         <form [formGroup]="loginForm" (ngSubmit)="submit()" style="color: black;" class="card-body">
           <div class="form-group">
-            <label for="email"><b>Email</b></label>
-            <input type="text" id="email" formControlName="email" placeholder="Entrez votre email" class="form-control"
+            <label for="email" style="color: black;"><b>Email</b></label>
+            <input type="text" id="email" formControlName="email" placeholder="Entrez votre email" class="form-control mb-3"
               [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
-
             <div *ngIf="submitted && f.email.errors" class="invalid-feedback text-danger">
               <div *ngIf="f.email.errors.required">Votre email est requis</div>
             </div>
           </div><br>
           <div class="form-group">
-            <label for="password"><b>Mot de pass</b></label>
+            <label for="password" style="color: black;"><b>Mot de pass</b></label>
             <input id="password" type="password" formControlName="password" placeholder="Entrez votre mot de passe"
-              class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-
+              class="form-control mb-5" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
             <div *ngIf="submitted && f.password.errors" class="invalid-feedback text-danger">
               <div *ngIf="f.password.errors.required">Votre mot de passe est requis</div>
             </div>
@@ -35,16 +31,19 @@
             <app-spinner *ngIf="waitingLogin"></app-spinner>
             <button type="submit" class="login loginmodal-submit btn" value="Login" *ngIf="!waitingLogin"
               style="color: white;">Se connecter</button>
-          </span>
+          </span><br><br><br><br>
         </form>
         <div class="formGroup">
         </div>
         <!-- <p><a href="javascript:void(0)" (click)="navigateToForgot()" style="color: rgb(79, 79, 34);">Mot de passe
           oublié</a><br> -->
-          <a href="javascript:void(0)" (click)="navigateToRegister()" style="color: rgb(79, 79, 34);">Créer un compte</a><br>
-          <button (click)="loginWithGoogle()" class="btn btn-danger mt-5"
-            style="background-color: rgb(244, 244, 244) !important; border-color: black; color: black;">Se connecter avec
-            <b style="color: rgb(30, 128, 247);">G</b><b style="color: #ee4646;">o</b><b style="color: rgb(230, 202, 42);">o</b><b style="color: rgb(40, 117, 231);">g</b><b style="color: #29d861;">l</b><b style="color: #ee4646;">e</b></button>
+        <a href="javascript:void(0)" (click)="navigateToRegister()" style="color: rgb(79, 79, 34);">Créer un
+          compte</a><br>
+        <button (click)="loginWithGoogle()" class="btn btn-danger mt-5"
+          style="background-color: rgb(244, 244, 244) !important; border-color: black; color: black;">Se connecter avec
+          <b style="color: rgb(30, 128, 247);">G</b><b style="color: #ee4646;">o</b><b
+            style="color: rgb(230, 202, 42);">o</b><b style="color: rgb(40, 117, 231);">g</b><b
+            style="color: #29d861;">l</b><b style="color: #ee4646;">e</b></button>
       </div>
     </div>
   </div>

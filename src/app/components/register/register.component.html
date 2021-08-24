@@ -11,7 +11,7 @@
         </div>
         <form [formGroup]="registerForm" (ngSubmit)="submit()" style="color: black;" class="card-body">
           <div class="form-group">
-            <label for="name"><b>Nom</b></label>
+            <label for="name" style="color: black;"><b>Nom</b></label>
             <input type="text" id="name" formControlName="name" placeholder="Entrez votre nom" class="form-control"
               [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
 
@@ -20,7 +20,7 @@
             </div>
           </div><br>
           <div class="form-group">
-            <label for="email"><b>Email</b></label>
+            <label for="email" style="color: black;"><b>Email</b></label>
             <input type="text" id="email" formControlName="email" placeholder="Entrez votre Email" class="form-control"
               [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
 
@@ -29,7 +29,7 @@
             </div>
           </div><br>
           <div class="form-group">
-            <label for="password"><b>Mot de passe</b></label>
+            <label for="password" style="color: black;"><b>Mot de passe</b></label>
             <input id="password" type="password" formControlName="password" placeholder="Entrez votre mot de passe"
               class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
 
